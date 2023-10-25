@@ -3,14 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Laboratorium_3___App.Controllers
 {
-    public class ContactController : Controller
+    public class TravelController : Controller
     {
-        // lista kontaktów
-        static Dictionary<int, Contact> _contacts = new Dictionary<int, Contact>();
+        static Dictionary<int, Travel> _travels = new Dictionary<int, Travel>();
         static int id = 1;
         public IActionResult Index()
         {
-            return View(_contacts);
+            return View(_travels);
         }
 
         [HttpGet]
@@ -18,49 +17,46 @@ namespace Laboratorium_3___App.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult Create(Contact model) 
+        public IActionResult Create(Travel model) 
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
-                // dodaj model do bazy lub kolekcji
                 model.Id = id++;
-                _contacts.Add(model.Id, model);
+                _travels.Add(model.Id, model);
                 return RedirectToAction("Index");
             }
             return View();
         }
 
         [HttpGet]
-        public IActionResult Update(int id) 
+        public IActionResult Update(int id)
         {
-            return View(_contacts[id]);
+            return View(_travels[id]);
         }
 
         [HttpPost]
-        public IActionResult Update(Contact model) 
+        public IActionResult Update(Travel model)
         {
             if (ModelState.IsValid)
             {
-                _contacts[model.Id] = model;
+                _travels[model.Id] = model;
                 return RedirectToAction("Index");
             }
             return View();
         }
 
         [HttpGet]
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id)
         {
-            return View(_contacts[id]);
+            return View(_travels[id]);
         }
 
         [HttpPost]
-        public IActionResult Delete(Contact model) 
+        public IActionResult Delete(Travel model)
         {
-            _contacts.Remove(model.Id);
+            _travels.Remove(model.Id);
             return RedirectToAction("Index");
         }
-
     }
 }
