@@ -1,4 +1,5 @@
 ﻿using Laboratorium2.Models;
+using Laboratorium2.Views.Birth;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Laboratorium2.Controllers
@@ -15,11 +16,9 @@ namespace Laboratorium2.Controllers
             return View();
         }
 
-        public IActionResult Result()
+        public IActionResult Result(Birth model)
         {
-            
-
-            return View();
+            return View(model);
         }
     }
 }

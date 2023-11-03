@@ -10,10 +10,10 @@
             switch(Operator)
             {
                 case Operators.Add: return (double)(X + Y);
-                    case Operators.Sub: return (double)(X - Y);
-                    case Operators.Mul: return (double)(X * Y);
-                    case Operators.Div: return (double)(X / Y);
-                    default: return double.NaN;
+                case Operators.Sub: return (double)(X - Y);
+                case Operators.Mul: return (double)(X * Y);
+                case Operators.Div: return (double)(X / Y);
+                default: return double.NaN;
             }
         }
 

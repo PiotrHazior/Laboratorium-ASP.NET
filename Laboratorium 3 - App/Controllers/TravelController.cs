@@ -58,5 +58,11 @@ namespace Laboratorium_3___App.Controllers
             _travels.Remove(model.Id);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            return View(_travels[id]);
+        }
     }
 }
